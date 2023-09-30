@@ -1,40 +1,65 @@
 <html>
   <head>
+    <!-- Bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- P5js -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script> -->
     <script src="p5.js"></script>
+    <script src="global.js"></script>
     <script src="main.js"></script>
     <script src="particle.js"></script>
     <script src="trus.js"></script>
+    <script src="buttons.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="button.css">
     <style>
-      div.a {
-        text-align: center;
-      }
-      
-      div.b {
+      /* CSS style for Boxes */
+      .col{
+        /* background-color: rgba(255, 255, 255, 0.8); */
+        border: 1px solid rgba(0, 0, 0, 0.8);
         text-align: left;
       }
-      
-      div.c {
-        text-align: right;
-        font-size: 10px;
-      } 
-      
-      div.d {
-        text-align: justify;
-      } 
-      </style>
+      .col-commands{
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        width: 100px;
+        padding: 5px;
+        text-align: center;
+      }
+  </style>
   </head>
-  <!-- <div style="background-image: url('pictures/mrTruss01.png');"></div> -->
-  <img src="pictures/unipd_log.jpg" alt="Unipd logo" style="width:300px;height:82px;">
-  <div class="c">
-    <h2>Corso di Meccanica Computazionale: </h2>
-    <p>Mazzucco Gianluca<br></p>
-    <p>Beatrice Pomaro<br></p>
-    <p>Nilocò Spiezia<br></p>
-  </div>
-
-  <div id="canvasDiv"></div>
-
-  <p>[<b>F5</b>] new; [<b>s</b>] start; [<b>e</b>] end; <br></p>
-  <p>[<b>up   arrow</b>] increase up load ; [<b>down  arrow</b>] increase down load [<b>left arrow</b>] increase left load;      [<b>right arrow</b>] increase right load <br></p>
+  <body>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          Collega i due punti senza ottenere labilità.
+          <!-- <input type="checkbox" id="create_element" value="on" name="create_element">Create Element  
+          <input type="checkbox" id="outputs_check" value="on" name="outputs_check">Outputs 
+          <input type="checkbox" id="precise_check" value="on" name="precise_check">Precise  -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-commands">
+          <button type="button" class="btn" id="cmd_new" title="Home" onclick="buttonClick(id)"><img src="pictures/home.png" width="30" /></button>
+          <button type="button" class="btn" id="cmd_start" title="Start" onclick="buttonClick(id)"><img src="pictures/start.png" width="30" /></button>
+          <button type="button" class="btn" id="cmd_end" title="End" onclick="buttonClick(id)"><img src="pictures/end.png" width="30" /></button>
+        </div>
+        <div class="col">
+          <h1>Disegna la tua struttura</h1>
+          <div id="canvasDiv"></div>
+        </div>
+        <div class="col">
+          <img src="pictures\logo_dicea.png" width="200" height="auto"> <br><br>
+          Dipartimento di Ingegneria Civile Edile e Ambientale <br><br>
+          Corso di Meccanica Computazionale <br><br><br><br>
+          Prof.   Mazzucco Gianluca <br>
+          Prof.sa Pomaro Beatrice <br>
+          Dott.   Spiezia Nicolò  <br>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

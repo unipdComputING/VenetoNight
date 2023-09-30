@@ -13,9 +13,15 @@ let i;
 let start;
 
 function setup(){
-  let cnv = createCanvas(1200, 600); 
+  let cnv = createCanvas(800, 500); 
   cnv.parent('canvasDiv');
   //cnv.position(50, 100);
+
+  check_cmd_home = false;
+  check_cmd_start = false;
+  check_cmd_end = false;
+
+
   start = false
   idclick = -1;
   i = 1;
@@ -75,6 +81,20 @@ function draw(){
 }
 
 function mouseClicked(){
+
+  if (check_cmd_start === true){
+    idclick = -1;
+    idps = [];
+    start = true;
+    check_cmd_end = false;
+    return
+  }
+
+  if (check_cmd_end === true){
+    noLoop();
+  }
+
+
   p = new Particle([mouseX, mouseY]);
   let id = -1;
   [id, particles] = findNewPart(p, particles);
@@ -124,6 +144,7 @@ function keyPressed() {
   console.log(keyCode);
   if (keyCode === 83) { // 's'
     start = true;
+    check_cmd_end = false;
   } else if (keyCode === 69) { // 'e'
     noLoop();
   } else if (keyCode == 27){ //esc
