@@ -41,6 +41,10 @@ function draw(){
   background(50, 150, 255);
   makeGrid(DXgrid, DYgrid);
 
+  st = 'Load:[' + loadtest[0].toFixed(2) + ',' + loadtest[1].toFixed(2) + ']'
+  textSize(18);
+  text(st, 50, height - 10);
+
   for(let el of truss){
     el.update(particles[el.idps[0]], particles[el.idps[1]]);
     if (el.broken == false){
