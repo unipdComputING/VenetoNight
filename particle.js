@@ -7,7 +7,7 @@ class Particle{
     this.f = [0.0, 0.0];
     this.d = 10;
     this.color = [100, 100, 100];
-    this.damping = 0.1;
+    this.damping = 0.05;
     this.vmax = 1.5;
     this.fix = [false, false];
   }
@@ -27,7 +27,7 @@ class Particle{
 
   update(){
     if (!this.fix[0]){
-      this.a[0] = this.f[0] - this.damping * this.v[0];
+      this.a[0] = this.f[0];
       this.v[0] = this.v[0] + this.a[0];
       if (this.magnitude(this.v) > this.vmax){
        let scale = this.vmax / this.magnitude(this.v);
@@ -36,7 +36,7 @@ class Particle{
       this.x[0] = this.x[0] + this.v[0];
     }
     if (!this.fix[1]){
-      this.a[1] = this.f[1] - this.damping * this.v[1];
+      this.a[1] = this.f[1];
       this.v[1] = this.v[0] + this.a[1];
       if (this.magnitude(this.v) > this.vmax){
        let scale = this.vmax / this.magnitude(this.v);
@@ -44,6 +44,8 @@ class Particle{
       }
       this.x[1] = this.x[1] + this.v[1];
     }
+    this.v[1] = this.v[1] * (1.0 - this.damping);
+    this.v[2] = this.v[2] * (1.0 - this.damping);
     this.f = [0.0, 0.0];
     //console.log(['a: ', this.a[0], this.a[1], 'v: ', this.v[0], this.v[1]])
   }
